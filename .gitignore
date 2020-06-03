@@ -1,0 +1,15 @@
+*~
+*#
+out
+release
+figwheel_server.log
+.cpcache
+.shadow-cljs
+logs
+resources/public/js
+clean.edn
+report.html
+dump
+_*
+.nrepl-port
+data/

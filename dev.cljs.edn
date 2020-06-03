@@ -1,0 +1,13 @@
+^{:css-dirs ["resources/public/css"]
+  :watch-dirs ["src/cljs" "src/cljc"]
+  :open-url false
+  :log-level :error}
+
+{:main descryptors.core
+ :output-to "resources/public/js/descryptors.js"
+ :output-dir "resources/public/js/out"
+ :closure-defines { ;;"re_frame.trace.trace_enabled_QMARK_" true
+                   ;;"day8.re_frame.tracing.trace_enabled_QMARK_" true
+                   }
+ ;;:preloads [day8.re-frame-10x.preload]
+ }

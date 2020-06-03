@@ -1,0 +1,76 @@
+{:roll/repl {:port 3311}
+
+ 
+ :descryptors.data/files
+ ["data/db.coins.edn"
+  "data/db.indexes.edn"]
+
+ 
+ :roll/paths [["conf/config.edn"
+               {:watch roll.core/reload
+                :throttle 200}]]
+
+ 
+ :roll/httpkit {:port 5000}
+ 
+ 
+ :roll/handler
+ {:routes [["/"
+            {:name :index
+             :get descryptors.handler/handle-index
+             :middleware [roll.handler/wrap-csrf]}]
+           
+           ["/page/:page-number"
+            {:name :page
+             :get descryptors.handler/handle-static-index}]
+           
+           ["/:slug"
+            {:name :descryptor
+             :get descryptors.handler/handle-descryptor
+             :middleware [roll.handler/wrap-csrf]}]]
+
+  :middleware
+  [ring.middleware.gzip/wrap-gzip
+   roll.handler/default-middleware
+   roll.handler/session-middleware]
+  
+  :sente #ig/ref :roll/sente}
+
+ 
+ :roll/sente
+ {:handshake-data-fn descryptors.data/handshake-data-fn
+
+  :path "/ws/chsk"
+  
+  :packer
+  {:write-handlers [linked.transit/write-handlers]
+   :read-handlers  [linked.transit/read-handlers]}} 
+
+ 
+ :descryptors/core {:sente #ig/ref :roll/sente}}
+
+
+
+(comment
+
+  :descryptors/mail {:to "<your mail"}
+
+  
+  :descryptors.data/redis {}
+  
+
+  :roll/google "conf/google-oauth.edn"
+
+
+  :roll/schedule
+  [[1 :h descryptors.tasks/update-price-minute]
+   [3 :h descryptors.tasks/update-price]]
+
+  
+  :descryptors.data/new-data
+  {:cmd "cp"
+   :path "../destreams/"
+   :files
+   ["data/db.price.edn.1"]}
+  
+  )

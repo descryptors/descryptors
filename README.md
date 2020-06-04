@@ -1,4 +1,4 @@
-<img height="80px" src="/resources/logo.svg">
+<img height="80px" src="/resources/public/img/logo.svg">
 
 >  _The only prescription, is more description._
 

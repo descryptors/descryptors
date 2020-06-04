@@ -5,6 +5,9 @@
 
 __Descryptors__ tries to make finding and monitoring cryptocurrency projects easier. Our goal is to be as transparent and neutral as possible.
 
+https://descryptors.io
+
+<br>
 
 ## Building
 
@@ -27,6 +30,8 @@ clj -A:frontend
 
 This will start Figwheel which will build the ClojureScript code.
 
+Descryptors uses [Proto](https://github.com/descryptors/proto) for frontend React components.
+
 ### Open
 
 After building is done, navigate in your browser to `localhost:5000`. It is possible to start the backend only with server-side rendering of the pages.
@@ -36,6 +41,7 @@ After building is done, navigate in your browser to `localhost:5000`. It is poss
 
 The project comes with some sample data located in `data` folder. This includes basic information about the cryptocurrency projects and a precomputed index for marketcap and code activity.
 
+Descryptors doesn't collect data by itself. For that you need to use [Destreams](https://github.com/descryptors/destreams).
 
 
 

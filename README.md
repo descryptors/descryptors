@@ -1,11 +1,9 @@
-<img height="80px" src="/resources/public/img/logo.svg">
+<img height="80px" src="/resources/logo.svg">
 
 >  _The only prescription, is more description._
 
 
 __Descryptors__ tries to make finding and monitoring cryptocurrency projects easier. Our goal is to be as transparent and neutral as possible.
-
-<img src="/resources/screenshot.png">
 
 
 ## Building
@@ -34,10 +32,11 @@ This will start Figwheel which will build the ClojureScript code.
 After building is done, navigate in your browser to `localhost:5000`. It is possible to start the backend only with server-side rendering of the pages.
 
 
-
 ## Data
 
 The project comes with some sample data located in `data` folder. This includes basic information about the cryptocurrency projects and a precomputed index for marketcap and code activity.
+
+
 
 
 ## License

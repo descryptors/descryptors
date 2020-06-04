@@ -1,9 +1,9 @@
 <img height="80px" src="/resources/public/img/logo.svg">
 
->  _The only prescription, is more description._
+>  _The only prescription is more description._
 
 
-__Descryptors__ tries to make finding and monitoring cryptocurrency projects easier. Our goal is to be as transparent and neutral as possible.
+__Descryptors__  makes finding and monitoring cryptocurrency projects easier. Our goal is to be as transparent and neutral.
 
 https://descryptors.io
 
@@ -11,7 +11,7 @@ https://descryptors.io
 
 ## Building
 
-To build __Descryptors__ you will need to install [Clojure CLI tools](https://clojure.org/guides/getting_started).
+To build __Descryptors__ you will need to install [__Clojure CLI tools__](https://clojure.org/guides/getting_started).
 
 
 ### Start Backend
@@ -20,9 +20,11 @@ To build __Descryptors__ you will need to install [Clojure CLI tools](https://cl
 clj -A:backend
 ```
 
-After building the Clojure code, it will load the data files (if specified), start the webserver and a REPL on port `3311`. All these can be configured in `conf/config.edn`.
+After building the Clojure code, it will load the data files (if specified), start the webserver and a REPL on port `3311`.
 
-Descryptors uses [__Roll__](https://github.com/dimovich/roll) as a backend "framework".
+See [conf/config.edn](/conf/config.edn).
+
+Descryptors uses [__Roll__](https://github.com/dimovich/roll) for backend.
 
 ### Start Frontend
 
@@ -32,7 +34,7 @@ clj -A:frontend
 
 This will start Figwheel which will build the ClojureScript code.
 
-Descryptors uses [__Proto__](https://github.com/descryptors/proto) for frontend React components.
+Descryptors uses [__Proto__](https://github.com/descryptors/proto) for React components and charts.
 
 ### Open
 

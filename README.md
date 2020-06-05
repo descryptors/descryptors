@@ -3,7 +3,7 @@
 >  _The only prescription is more description._
 
 
-__Descryptors__  makes finding and monitoring cryptocurrency projects easier. Our goal is to be as transparent and neutral.
+__Descryptors__  makes finding and monitoring cryptocurrency projects easy. Our goal is to be transparent and neutral.
 
 https://descryptors.io
 
@@ -38,7 +38,7 @@ Descryptors uses [__Proto__](https://github.com/descryptors/proto) for React com
 
 ### Open
 
-After building is done, navigate in your browser to `localhost:5000`. It is possible to start the backend only with server-side rendering of the pages.
+After building is done, navigate in your browser to `localhost:5000`. If you start only the backend, the pages will be rendered on the server.
 
 
 ## Data

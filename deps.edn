@@ -24,7 +24,7 @@
         
         roll
         {:git/url "https://github.com/dimovich/roll"
-         :sha "8dba3447c1e40e0e9fb24a2d5c37cb5692162447"}
+         :sha "ca24c12eb9d8c3c9f9983aef7fd4b21d62a7e506"}
 
         roll/google
         {:git/url "https://github.com/dimovich/google"
@@ -47,12 +47,12 @@
 
   :cider
   {:extra-paths ["resources"]
-   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.7"}}}
+   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.8"}}}
 
 
   :frontend
   {:extra-paths ["resources"]
-   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.7"}}
+   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.8"}}
    :main-opts ["-m figwheel.main" "-b dev"]}
 
 

@@ -47,7 +47,7 @@
    {:mode :replace}
    (fn [coin]
      (->> (pcu/trim-precision :price :minute :1d coin)
-          (schema/lod :descryptors/price))))
+          (schema/lod2 :descryptors/price))))
   (info "[DONE] trimming"))
 
 
@@ -58,8 +58,10 @@
    {:mode :replace}
    (fn [coin]
      (->> (trickle-trim-price coin)
-          (schema/lod :descryptors/price))))
+          (schema/lod2 :descryptors/price))))
   (info "[DONE] trickle trimming"))
+
+
 
 
 

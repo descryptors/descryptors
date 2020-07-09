@@ -1,6 +1,10 @@
 {:roll/repl {:port 3311}
-
  
+
+ :roll/timbre
+ {:appenders {:spit {:fname "timbre.log"}}}
+ 
+
  :descryptors.data/files
  ["data/db.coins.edn"
   "data/db.indexes.edn"]

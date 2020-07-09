@@ -15,7 +15,6 @@
         persistent-sorted-set {:mvn/version "0.1.2"}
         amalloy/ring-gzip-middleware {:mvn/version "0.1.4"}
         metosin/reitit-frontend {:mvn/version "0.4.2"}
-        zprint {:mvn/version "0.5.4"}
         org.clojure/core.memoize {:mvn/version "1.0.236"}
         
         com.smxemail/re-frame-cookie-fx
@@ -24,7 +23,7 @@
         
         roll
         {:git/url "https://github.com/dimovich/roll"
-         :sha "ca24c12eb9d8c3c9f9983aef7fd4b21d62a7e506"}
+         :sha "b461bb00b95bca3f2b38f6abc50c1c4c9c787a0a"}
 
         roll/google
         {:git/url "https://github.com/dimovich/google"
@@ -32,7 +31,7 @@
         
         proto
         {:git/url "https://github.com/descryptors/proto"
-         :sha "6011df3e5a928b30683430392eb9d47800369e6c"}
+         :sha "07462b8357c74120ad44d1a4129f72d7619f390c"}
         
         linked-transit
         {:git/url "https://github.com/dimovich/linked-transit"

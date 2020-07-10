@@ -59,6 +59,15 @@
          [:data :price :hour]
          [:data :price :day]]
 
+        :descryptors/price-data-minute
+        [[:data :price :minute]]
+
+        :descryptors/price-data-hour
+        [[:data :price :hour]]
+
+        :descryptors/price-data-day
+        [[:data :price :day]]
+
         :descryptors/new-data-price
         [[:data :price :svg]
          [:data :price :day]
@@ -115,20 +124,19 @@
 (defn lod
   "Select paths and strip all other data. Sets lod level."
   [level coins & [opts]]
-  (let [coins (if (sequential? coins) coins [coins])
-        paths (get lod-paths level)]
+  (let [paths (get lod-paths level)]
     (keep #(some-> (select-fields paths %)
                    not-empty
                    (assoc :slug (:slug %) :lod level))
-          coins)))
+          (if (sequential? coins) coins [coins]))))
 
 
 (defn lod2
   "Select paths and strip all other data."
-  [level coins & [opts]]
-  (let [coins (if (sequential? coins) coins [coins])
-        paths (get lod-paths level)]
+  [levels coins & [opts]]
+  (let [paths (mapcat lod-paths (if (sequential? levels)
+                                  levels [levels]))]
     (keep #(some-> (select-fields paths %)
                    not-empty
                    (assoc :slug (:slug %)))
-          coins)))
+          (if (sequential? coins) coins [coins]))))

@@ -26,6 +26,13 @@
 
 
 
+(defn trickle-price-data3 [coin]
+  (update-in coin [:data :price]
+             #(->> (pcu/minute->precision3 :hour %)
+                   (pcu/minute->precision3 :day))))
+
+
+
 (defn trim-price-data [coin]
   (-> coin
       (update-in [:data :price :hour]
@@ -55,6 +62,12 @@
        (update-price-charts)))
 
 
+(defn trickle-trim-price3 [coin]
+  (->> (trickle-price-data3 coin)
+       (trim-price-data)
+       (update-price-charts)))
+
+
 
 (defn update-price-minute [& args]
   (info "trimming minute price data...")
@@ -74,7 +87,7 @@
   (db/update-db2
    {:mode :replace}
    (fn [coin]
-     (->> (trickle-trim-price2 coin)
+     (->> (trickle-trim-price3 coin)
           (schema/lod2 [:descryptors/price-data-hour
                         :descryptors/price-data-day
                         :descryptors/price-svg]))))

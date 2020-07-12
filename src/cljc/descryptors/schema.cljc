@@ -3,7 +3,7 @@
             [com.rpl.specter :as sr :refer [ALL MAP-VALS transform select multi-path]]))
 
 
-(def version "build 80ae006 (Hmeli-Suneli)")
+(def version "build 7833a16 (Hmeli-Suneli)")
 
 (def handshake-amount 60)
 

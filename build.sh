@@ -4,7 +4,7 @@ echo "cleaning up..."
 ./cleanup.sh
 
 echo "updating version string..."
-sed -i -re "s/build [a-zA-Z0-9_]+/build $(git rev-parse --short HEAD)/g" src/cljc/descryptors/schema.cljc
+sed -i -re "s/build \{\{BUILD\}\}/build $(git rev-parse --short HEAD)/g" src/cljc/descryptors/schema.cljc
 
 echo "compiling clojurescript..."
 clj -A:prod
@@ -25,3 +25,7 @@ cp -R resources release/resources
 cp -R templates release/
 cp -R scripts/* release/
 cp -R conf release/
+
+
+echo "reverting version string..."
+sed -i -re "s/build [a-zA-Z0-9_]+/build \{\{BUILD\}\}/g" src/cljc/descryptors/schema.cljc

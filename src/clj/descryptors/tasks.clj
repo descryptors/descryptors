@@ -44,7 +44,7 @@
 
 (defn update-price-charts [coin]
   (update-in coin [:data :price]
-             line/price-charts pdd/static-charts))
+             line/price-charts pdd/static-price-charts))
 
 
 

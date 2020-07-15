@@ -12,33 +12,18 @@
 
 
 (defn trickle-price-data [coin]
-  (ru/deep-merge
-   (pcu/minute->precision :price :hour coin)
-   (or (pcu/minute->precision :price :day coin)
-       {})))
-
-
-
-(defn trickle-price-data2 [coin]
   (update-in coin [:data :price]
-             #(->> (pcu/minute->precision2 :hour %)
-                   (pcu/minute->precision2 :day))))
-
-
-
-(defn trickle-price-data3 [coin]
-  (update-in coin [:data :price]
-             #(->> (pcu/minute->precision3 :hour %)
-                   (pcu/minute->precision3 :day))))
+             #(->> (pcu/minute->precision :hour %)
+                   (pcu/minute->precision :day))))
 
 
 
 (defn trim-price-data [coin]
   (-> coin
       (update-in [:data :price :hour]
-                 (partial pcu/trim-precision3 :1m))
+                 (partial pcu/trim-precision2 :1m))
       (update-in [:data :price :day]
-                 (partial pcu/trim-precision3 :1y))))
+                 (partial pcu/trim-precision2 :1y))))
 
 
 
@@ -50,20 +35,6 @@
 
 (defn trickle-trim-price [coin]
   (->> (trickle-price-data coin)
-       (ru/deep-merge-into coin)
-       (trim-price-data)
-       (update-price-charts)))
-
-
-
-(defn trickle-trim-price2 [coin]
-  (->> (trickle-price-data2 coin)
-       (trim-price-data)
-       (update-price-charts)))
-
-
-(defn trickle-trim-price3 [coin]
-  (->> (trickle-price-data3 coin)
        (trim-price-data)
        (update-price-charts)))
 
@@ -75,8 +46,7 @@
    {:mode :replace}
    (fn [coin]
      (->> (update-in coin [:data :price :minute]
-                     (partial pcu/trim-precision3 :1d))
-          ;;(pcu/trim-precision :price :minute :1d coin)
+                     (partial pcu/trim-precision2 :1d))
           (schema/lod2 :descryptors/price-data-minute))))
   (info "[DONE] trimming"))
 
@@ -87,7 +57,7 @@
   (db/update-db2
    {:mode :replace}
    (fn [coin]
-     (->> (trickle-trim-price3 coin)
+     (->> (trickle-trim-price coin)
           (schema/lod2 [:descryptors/price-data-hour
                         :descryptors/price-data-day
                         :descryptors/price-svg]))))

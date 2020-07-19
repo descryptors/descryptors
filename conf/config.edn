@@ -1,10 +1,6 @@
 {:roll/repl {:port 3311}
  
 
- :roll/timbre
- {:appenders {:spit {:fname "timbre.log"}}}
- 
-
  :descryptors.data/files
  ["data/db.coins.edn"
   "data/db.indexes.edn"]
@@ -57,13 +53,17 @@
 
 (comment
 
-  :descryptors/mail {:to "<your mail"}
+  :descryptors/mail {:to "<your mail>"}
 
   
   :descryptors.data/redis {}
   
 
   :roll/google "conf/google-oauth.edn"
+
+
+  :roll/timbre
+  {:appenders {:spit {:fname "timbre.log"}}}
 
 
   :roll/schedule

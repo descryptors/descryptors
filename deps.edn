@@ -14,16 +14,16 @@
         com.taoensso/carmine {:mvn/version "2.19.1"}
         persistent-sorted-set {:mvn/version "0.1.2"}
         amalloy/ring-gzip-middleware {:mvn/version "0.1.4"}
-        metosin/reitit-frontend {:mvn/version "0.4.2"}
+        metosin/reitit-frontend {:mvn/version "0.5.5"}
         org.clojure/core.memoize {:mvn/version "1.0.236"}
-        
+
         com.smxemail/re-frame-cookie-fx
         {:git/url "https://github.com/dimovich/re-frame-cookie-fx"
          :sha "ec52616fa1099cdd141dd52636876e3c81ff2849"}
         
         roll
         {:git/url "https://github.com/dimovich/roll"
-         :sha "b461bb00b95bca3f2b38f6abc50c1c4c9c787a0a"}
+         :sha "bfc2c4f852097d7156b379e7fa1823573e79c430"}
 
         roll/google
         {:git/url "https://github.com/dimovich/google"
@@ -46,12 +46,12 @@
 
   :cider
   {:extra-paths ["resources"]
-   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.8"}}}
+   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.10"}}}
 
 
   :frontend
   {:extra-paths ["resources"]
-   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.8"}}
+   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.10"}}
    :main-opts ["-m figwheel.main" "-b dev"]}
 
 

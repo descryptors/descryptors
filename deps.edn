@@ -23,7 +23,7 @@
         
         roll
         {:git/url "https://github.com/dimovich/roll"
-         :sha "bfc2c4f852097d7156b379e7fa1823573e79c430"}
+         :sha "afdbbfe7b8aea35f789522ebbf528176444b4743"}
 
         roll/google
         {:git/url "https://github.com/dimovich/google"

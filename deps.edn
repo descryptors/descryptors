@@ -31,7 +31,7 @@
         
         proto
         {:git/url "https://github.com/descryptors/proto"
-         :sha "65baee88392ab625d637d9040ac2ed684b563de5"}
+         :sha "fdd384a375dfd15db9882f2e7a3b2f0bd6dfd722"}
         
         linked-transit
         {:git/url "https://github.com/dimovich/linked-transit"

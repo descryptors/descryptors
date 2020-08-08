@@ -238,7 +238,7 @@
 (defn index []
   (let [href-about (href ::routes/about)
         href-terms (href ::routes/terms)
-        href-code  (href ::routes/code)
+        ;;href-code  (href ::routes/code)
         href-descryptor (href ::routes/descryptor {:slug ""})
         
         wrapper-classes {::routes/descryptor "wrapper--single"}
@@ -599,7 +599,8 @@
                          :logo-opts  {:target :self
                                       :on-click logo-on-click}
                          :about-opts {:href href-about}
-                         :code-opts {:href href-code}
+                         :code-opts {:href "https://github.com/descryptors"
+                                     :target :blank}
                          :reddit-opts {:target :blank
                                        :href "https://reddit.com/r/descryptors"}
                          :terms-opts {:href href-terms}

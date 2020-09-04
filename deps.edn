@@ -21,9 +21,7 @@
         {:git/url "https://github.com/dimovich/re-frame-cookie-fx"
          :sha "ec52616fa1099cdd141dd52636876e3c81ff2849"}
         
-        roll
-        {:git/url "https://github.com/dimovich/roll"
-         :sha "afdbbfe7b8aea35f789522ebbf528176444b4743"}
+        dimovich/roll {:mvn/version "0.3.0"}
 
         roll/google
         {:git/url "https://github.com/dimovich/google"
@@ -31,7 +29,7 @@
         
         proto
         {:git/url "https://github.com/descryptors/proto"
-         :sha "fdd384a375dfd15db9882f2e7a3b2f0bd6dfd722"}
+         :sha "77efb4e4729b4563df4c412202cd85f584d321d4"}
         
         linked-transit
         {:git/url "https://github.com/dimovich/linked-transit"
@@ -46,12 +44,12 @@
 
   :cider
   {:extra-paths ["resources"]
-   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.10"}}}
+   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.11"}}}
 
 
   :frontend
   {:extra-paths ["resources"]
-   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.10"}}
+   :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.11"}}
    :main-opts ["-m figwheel.main" "-b dev"]}
 
 

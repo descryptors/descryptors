@@ -1343,6 +1343,12 @@ a {
   position: relative; }
   .table__row {
     display: flex; }
+    .table__row--header span {
+      cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none; }
     .table__row:first-child {
       color: var(--color);
       font-size: 13px; }

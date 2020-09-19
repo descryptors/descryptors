@@ -394,7 +394,11 @@ a {
   border-radius: 50px;
   font-size: 13px;
   display: inline-flex;
-  align-items: center; }
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
   .more--dots {
     line-height: 26px;
     padding: 0 10px;
@@ -1232,6 +1236,10 @@ a {
     align-items: flex-start;
     flex-wrap: nowrap;
     min-height: 26px; }
+  .single__team {
+    max-height: 6em; }
+  .single__used-by {
+    max-height: 6em; }
   .single__label {
     color: var(--gray-dark);
     margin-bottom: 8px;

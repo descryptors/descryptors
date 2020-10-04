@@ -1,4 +1,6 @@
-{:roll/repl {:port 3311}
+{:roll/opts {:dynamic true}
+
+ :roll/repl {:port 3311}
  
 
  :descryptors.data/files
@@ -27,8 +29,14 @@
            ["/:slug"
             {:name :descryptor
              :get descryptors.handler/handle-descryptor
-             :middleware [roll.handler/wrap-csrf]}]]
+             :middleware [roll.handler/wrap-csrf]}]
 
+           ["/me/status"
+            {:name :status
+             :get descryptors.handler/handle-status}]]
+
+  :descryptors.handler/pass "secret"
+  
   :middleware
   [ring.middleware.gzip/wrap-gzip
    roll.handler/default-middleware

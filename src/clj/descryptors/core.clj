@@ -9,13 +9,10 @@
 
 
 (defmethod ig/init-key :descryptors/core [_ {:as opts :keys [sente]}]
-  (info "starting descryptors/core")
-  (info (u/spp (cond-> opts
-                 (:sente opts)
-                 (assoc :sente true))))
+  (info "starting descryptors/core...")
   (cond-> {}
     sente (assoc :stop-watch-clients
-                 (handler/watch-connected-clients))))
+                 (handler/watch-connected-clients (:connected-uids sente)))))
 
 
 

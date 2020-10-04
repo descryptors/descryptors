@@ -5,7 +5,7 @@
    [roll.handler :refer [href]]
    [descryptors.schema :as schema :refer [version]]
    [descryptors.util :as util]
-   [proto.descryptors.defaults :as defaults]
+   [proto.descryptors.defaults :as pdd]
    [proto.descryptors.common :as common
     :refer [descryptors-grid descryptor-single
             logo navigation header footer]]))
@@ -33,7 +33,7 @@
 (defn set-html-theme [theme html-string]
   (clojure.string/replace
    html-string "{{html-opts}}"
-   (if-let [css-class (get defaults/theme-classes theme)]
+   (if-let [css-class (get pdd/theme-classes theme)]
      (str "class=" css-class)
      "")))
 

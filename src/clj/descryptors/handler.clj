@@ -1,33 +1,49 @@
 (ns descryptors.handler
-  (:require [taoensso.timbre    :refer [info]]
+  (:require [taoensso.timbre :refer [info]]
             [clojure.core.memoize :as memo]
             [ring.util.response :as resp]
-            [re-frame.core       :refer [dispatch subscribe]]
-            [roll.sente          :refer [event-msg-handler]]
-            [roll.handler        :refer [href]]
-            [descryptors.comms   :as comms]
-            [descryptors.pages   :as pages]
-            [descryptors.db      :as db]
-            [descryptors.data    :as data]
-            [descryptors.mail    :as mail]
-            [descryptors.schema  :refer [handshake-amount]]
-            [proto.descryptors   :refer [search-box]]
+            [re-frame.core :refer [dispatch subscribe]]
+            [roll.sente :refer [event-msg-handler]]
+            [roll.handler :refer [href]]
+            [roll.state :as rs]
+            [roll.util :as ru]
+            [descryptors.comms :as comms]
+            [descryptors.pages :as pages]
+            [descryptors.db :as db]
+            [descryptors.data :as data]
+            [descryptors.mail :as mail]
+            [descryptors.schema :refer [handshake-amount]]
+            [proto.descryptors :refer [search-box]]
             [proto.descryptors.common :refer [inline-html]]
             [proto.descryptors.defaults :as defaults
              :refer [svg-loading visible-charts coins-on-page]]))
 
 
 
+(defonce stats (atom {:connects (sorted-map)}))
+
+
+(defonce day-millis (* 24 60 60 1000))
+(defn day []
+  (-> (System/currentTimeMillis)
+      (quot day-millis)
+      (* day-millis)))
+
+
+
 ;; WebSocket
 ;;
 
-(defn watch-connected-clients []
+(defn watch-connected-clients [connected-uids]
   (add-watch
-   (comms/connected-uids) :connected-uids
+   connected-uids :connected-uids
    (fn [k a {any-old :any} {any-new :any}]
-     (let [ ;;connected (clojure.set/difference any-new any-old)
+     (let [connects (count (clojure.set/difference any-new any-old))
            ;;handshake-slugs @(subscribe [::db/handshake-slugs])
            disconnected (clojure.set/difference any-old any-new)]
+
+       ;; stats
+       (swap! stats update :connects update (day) (fnil + 0) connects)
        
        ;; keep track of what coins we send on handshake
        ;; (for now slugs are updated during actual handshake)
@@ -39,7 +55,7 @@
          (db/update-clients (partial apply dissoc) disconnected)))))
   
   #(do
-     (remove-watch (comms/connected-uids) :connected-uids)
+     (remove-watch connected-uids :connected-uids)
      (db/update-clients (constantly nil))))
 
 
@@ -215,3 +231,17 @@
                (resp/response))
       {:status 404 :body (str "cannot find " slug)}))
 
+
+
+
+(defn handle-status [{:as req :keys [params]}]
+  (let [req-pass (:pass params)
+        conf-pass (get-in rs/config [:roll/handler ::pass])]
+    (if (or (not conf-pass)
+            (= req-pass conf-pass))
+      (resp/response
+       (str "Stats\n"
+            (count (:any @(comms/connected-uids))) "\n"
+            @stats))
+
+      (resp/not-found ""))))

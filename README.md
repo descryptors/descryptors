@@ -73,9 +73,9 @@ __ZCash__
 
 zs1rnz2nz7vyc0nnl2d4y4lsq2qqm205fpel0mlxgwhkj83ajsngq2tp2za8wgcz6pcar2rxx40f23
 
+<br>
 
-
-## License
+# License
 
 Copyright © 2020 Descryptors team
 

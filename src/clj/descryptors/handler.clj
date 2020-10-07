@@ -42,7 +42,7 @@
            ;;handshake-slugs @(subscribe [::db/handshake-slugs])
            disconnected (clojure.set/difference any-old any-new)]
 
-       ;; stats
+       ;; update stats
        (swap! stats update :connects update (day) (fnil + 0) connects)
        
        ;; keep track of what coins we send on handshake
@@ -234,14 +234,15 @@
 
 
 
+
 (defn handle-status [{:as req :keys [params]}]
   (let [req-pass (:pass params)
         conf-pass (get-in rs/config [:roll/handler ::pass])]
     (if (or (not conf-pass)
             (= req-pass conf-pass))
       (resp/response
-       (str "Stats\n"
-            (count (:any @(comms/connected-uids))) "\n"
-            @stats))
+       (->> (count (:any @(comms/connected-uids)))
+            (assoc @stats :amount)
+            (pages/status-page)))
 
       (resp/not-found ""))))

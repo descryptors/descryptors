@@ -5,6 +5,8 @@
    [roll.handler :refer [href]]
    [descryptors.schema :as schema :refer [version]]
    [descryptors.util :as util]
+   [proto.charts.util :as pcu]
+   [proto.charts.line :as pcl]
    [proto.descryptors.defaults :as pdd]
    [proto.descryptors.common :as common
     :refer [descryptors-grid descryptor-single
@@ -15,6 +17,7 @@
 
 (def templates
   {:index (slurp "templates/index.html")
+   :status (slurp "templates/status.html")
    :descryptor (slurp "templates/descryptor.html")
    :static-index (slurp "templates/static-index.html")
    :static-descryptor (slurp "templates/static-descryptor.html")})
@@ -152,3 +155,33 @@
 (def static-descryptor-page
   (memo/ttl static-descryptor-page' {} :ttl/threshold schema/memoize-ttl))
 
+
+
+
+
+
+(defn stats-chart [data]
+  (when (not-empty data)
+    (->> {:data data}
+         (pcu/add-spec
+          {:view :1m
+           :line-width "1.2px"
+           :grid-width "1px"
+           :ymargin 50
+           :font-size 12
+           :size [600 200]
+           :yformatter long})
+         (pcl/add-ticks {:xticks? true :yticks? true :screen :sm})
+         pcl/line-chart
+         :data)))
+
+
+
+(defn status-page [stats]
+  (->> (html
+        [:p "Connected: " [:b (:amount stats)]]
+        [:div {:style {:width "600px" :padding-top "2em"}}
+         (stats-chart (:connects stats))])
+   
+       (clojure.string/replace
+        (:status templates) "{{page-contents}}")))

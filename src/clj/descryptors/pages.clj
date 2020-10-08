@@ -164,12 +164,13 @@
   (when (not-empty data)
     (->> {:data data}
          (pcu/add-spec
-          {:view :1m
+          {:view :1w
            :line-width "1.2px"
            :grid-width "1px"
            :ymargin 50
            :font-size 12
            :size [600 200]
+           :ydomain [0]
            :yformatter long})
          (pcl/add-ticks {:xticks? true :yticks? true :screen :sm})
          pcl/line-chart

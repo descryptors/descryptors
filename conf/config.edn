@@ -1,4 +1,4 @@
-{:roll/opts {:dynamic true}
+{ ;;:roll/opts {:dynamic true}
 
  :roll/repl {:port 3311}
  
@@ -8,9 +8,10 @@
   "data/db.indexes.edn"]
 
  
- :roll/paths [["conf/config.edn"
-               {:watch roll.core/reload
-                :throttle 200}]]
+ :roll/paths
+ [["conf/config.edn"
+   {:watch roll.core/reload
+    :throttle 200}]]
 
  
  :roll/httpkit {:port 5000}
@@ -34,8 +35,7 @@
            ["/me/status"
             {:name :status
              :get descryptors.handler/handle-status}]]
-
-  :descryptors.handler/pass "secret"
+  
   
   :middleware
   [ring.middleware.gzip/wrap-gzip
@@ -55,7 +55,10 @@
    :read-handlers  [linked.transit/read-handlers]}} 
 
  
- :descryptors/core {:sente #ig/ref :roll/sente}}
+ :descryptors/core {:sente #ig/ref :roll/sente}
+
+ ;;:roll/reload {:page ["src"]}
+ }
 
 
 

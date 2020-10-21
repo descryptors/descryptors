@@ -2,6 +2,7 @@
 
 >  _The only prescription is more description._
 
+<br>
 
 __Descryptors__  makes finding and monitoring cryptocurrency projects easy. Our goal is to be transparent and neutral.
 

@@ -45,8 +45,7 @@ After building is done, navigate in your browser to `localhost:5000`. If you sta
 
 The project comes with some sample data located in `data` folder. This includes basic information about the cryptocurrency projects and a precomputed index for marketcap and code activity.
 
-Descryptors doesn't collect data by itself. For that you need to use [__Destreams__](https://github.com/descryptors/destreams).
-
+Descryptors doesn't collect data by itself.
 
 ## Overview
 
@@ -77,6 +76,6 @@ zs1rnz2nz7vyc0nnl2d4y4lsq2qqm205fpel0mlxgwhkj83ajsngq2tp2za8wgcz6pcar2rxx40f23
 
 # License
 
-Copyright © 2020 Descryptors team
+Copyright © 2020 Descryptors
 
 Licensed under GNU General Public License version 3 (see [LICENSE](LICENSE)).

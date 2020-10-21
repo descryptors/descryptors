@@ -45,7 +45,11 @@ After building is done, navigate in your browser to `localhost:5000`. If you sta
 
 The project comes with some sample data located in `data` folder. This includes basic information about the cryptocurrency projects and a precomputed index for marketcap and code activity.
 
-Descryptors doesn't collect data by itself.
+If you'd like to add more information please see the [__Data__](https://github.com/descryptors/data) project.
+
+Descryptors doesn't collect data by itself. This is left as an exercise for the reader.
+
+
 
 ## Overview
 

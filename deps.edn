@@ -20,9 +20,7 @@
         {:git/url "https://github.com/dimovich/re-frame-cookie-fx"
          :sha "ec52616fa1099cdd141dd52636876e3c81ff2849"}
         
-        dimovich/roll
-        {:git/url "https://github.com/dimovich/roll"
-         :sha "f954c408ee5bb872c9e0ae41f4c4efc2c589b35a"}
+        dimovich/roll {:mvn/version "0.3.2"}
 
         roll/google
         {:git/url "https://github.com/dimovich/google"
@@ -30,7 +28,7 @@
         
         proto
         {:git/url "https://github.com/descryptors/proto"
-         :sha "680ab5eac4937e4d6545d50c28cee70f0ac8f14b"}
+         :sha "e626df112a0935b12d9c3037f2b87fee6cbf4c01"}
         
         linked-transit
         {:git/url "https://github.com/dimovich/linked-transit"

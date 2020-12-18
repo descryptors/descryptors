@@ -48,7 +48,6 @@ The project comes with some sample data located in `data` folder. This includes 
 
 If you'd like to add more information please see the [__Data__](https://github.com/descryptors/data) project.
 
-Descryptors doesn't collect data by itself. This is left as an exercise for the reader.
 
 
 

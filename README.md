@@ -48,7 +48,6 @@ The project comes with some sample data located in `data` folder. This includes 
 
 If you'd like to add more information please see the [__Data__](https://github.com/descryptors/data) project.
 
-Descryptors doesn't collect data by itself. This is left as an exercise for the reader.
 
 
 
@@ -59,7 +58,7 @@ Descryptors doesn't collect data by itself. This is left as an exercise for the 
 
 ## Support Us
 
-Your support helps the ongoing development of Descryptors!
+Please support the ongoing development of Descryptors!
 
 __Bitcoin__
 
@@ -68,14 +67,6 @@ __Bitcoin__
 __Ethereum__
 
 0x3416bBdDa95f7e7aDe11963DCeeB67989e086Cbe
-
-__Monero__
-
-42Acb5EGZQDARu9DJEZ7ZdTqds9GUEFtNRVXVkd6M3XKSSXaEZkPPk7bjY31ALLqArZBoMS2eHNyZTYYVC7g6AXwTpi8kA7
-
-__ZCash__
-
-zs1rnz2nz7vyc0nnl2d4y4lsq2qqm205fpel0mlxgwhkj83ajsngq2tp2za8wgcz6pcar2rxx40f23
 
 <br>
 

@@ -1,9 +1,14 @@
 (ns descryptors.schema
   (:require [proto.descryptors.defaults :as defaults]
+            [roll.util :as ru]
             [com.rpl.specter :as sr :refer [ALL MAP-VALS transform select multi-path]]))
 
 
-(def version "build {{BUILD}} (Hmeli-Suneli)")
+
+(defonce version
+  (str "build "
+       (:git/commit (ru/preload-edn "resources/version.edn"))
+       " (Hmeli-Suneli)"))
 
 (def handshake-amount 60)
 

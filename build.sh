@@ -3,29 +3,37 @@
 echo "cleaning up..."
 ./cleanup.sh
 
+rm -rf release
+mkdir release
+
+
+
 echo "updating version string..."
-sed -i -re "s/build \{\{BUILD\}\}/build $(git rev-parse --short HEAD)/g" src/cljc/descryptors/schema.cljc
+
+TAG="`git tag | head -n1 | awk '{print $1}'`"
+COMMIT="`git rev-parse --short HEAD`"
+__version="
+{:git/tag \"$TAG\"
+ :git/commit \"$COMMIT\"}"
+
+echo "$__version" > resources/version.edn
+
+
 
 echo "compiling clojurescript..."
 clj -A:prod
 rm -rf resources/public/js/out
 
 
-echo "making release..."
-
-## cleanup
-rm -rf release
-mkdir release
+echo "compiling clojure..."
 
 ## build clj
 clj -A:uberjar
+
+echo "copying..."
 
 ## copy resources
 cp -R resources release/resources
 cp -R templates release/
 cp -R scripts/* release/
 cp -R conf release/
-
-
-echo "reverting version string..."
-sed -i -re "s/build [a-zA-Z0-9_]+/build \{\{BUILD\}\}/g" src/cljc/descryptors/schema.cljc

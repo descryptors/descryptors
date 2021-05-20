@@ -5,7 +5,8 @@
 
  :descryptors.data/files
  ["data/db.coins.edn"
-  "data/db.indexes.edn"]
+  "data/db.indexes.edn"
+  "data/db.metrics.edn.1"]
 
  
  :roll/paths
